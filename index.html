@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ascii - duo</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>▚</text></svg>" />
+    <!-- Satoshi is loaded from Fontshare's CDN: the ITF Free Font License does
+         not permit redistributing the font files themselves. -->
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar">
+        <header id="brand">
+          <h1>ascii<span>-duo</span></h1>
+          <p id="clip-info">No clip loaded</p>
+        </header>
+        <div id="controls"></div>
+        <footer id="status">
+          <div id="progress"><div id="progress-bar"></div></div>
+          <p id="status-text">Ready</p>
+        </footer>
+      </aside>
+
+      <main id="stage">
+        <div id="viewport">
+          <canvas id="out"></canvas>
+          <div id="dropzone">
+            <div class="dz-inner">
+              <div class="dz-art">▚▞▚▞</div>
+              <h2>Drop an image, GIF, or video</h2>
+              <p>.png · .jpg · .webp · .gif · .mp4 · .webm · .mov</p>
+              <button type="button" id="pick">Choose a file</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="transport">
+          <button type="button" id="playpause" title="Play / pause (space)">Pause</button>
+          <input type="range" id="scrub" min="0" max="0" value="0" step="1" />
+          <span id="frame-counter">0 / 0</span>
+          <button type="button" id="copy-text" title="Copy the current frame as plain text">Copy text</button>
+        </div>
+      </main>
+    </div>
+
+    <input
+      type="file"
+      id="file"
+      accept="image/*,video/*,.gif,.png,.jpg,.jpeg,.webp,.avif,.bmp,.svg,.mp4,.webm,.mov,.m4v"
+      hidden
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

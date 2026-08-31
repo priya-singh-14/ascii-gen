@@ -409,9 +409,12 @@ async function loadDemo(): Promise<void> {
   if (busy) return
   setBusy(true)
   try {
-    setStatus('Generating demo clip…')
+    setStatus('Loading demo clip…')
     lastFile = null
     await useClip(await makeDemoClip())
+  } catch (err) {
+    console.error(err)
+    setStatus(`Could not load the demo clip: ${(err as Error).message ?? err}`)
   } finally {
     setBusy(false)
   }
